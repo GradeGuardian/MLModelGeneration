@@ -10,6 +10,8 @@ from sklearn.cross_validation import train_test_split
 X = df.drop('q89',axis=1)
 y = df['q89']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4)
+
+#Model generation with Tress
 from sklearn.tree import DecisionTreeClassifier
 dtree = DecisionTreeClassifier()
 dtree.fit(X_train,y_train)
@@ -19,6 +21,7 @@ print(confusion_matrix(y_test,predictions))
 print('\n')
 print(classification_report(y_test,predictions))
 
+#Another Model generation that includes random forest (Is know for being more accurate)
 from sklearn.ensemble import RandomForestClassifier
 rfc = RandomForestClassifier(n_estimators=200)
 rfc.fit(X_train,y_train)
